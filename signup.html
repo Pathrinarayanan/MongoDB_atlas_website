@@ -1,0 +1,62 @@
+
+
+<link rel="stylesheet" type="text/css" href="register.css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+<div class="container">
+	<div class="header">
+		<h2>Create Account</h2>
+	</div>
+	<form id="form" class="form"  onsubmit="signup()" action="mywebsite2.html" >
+		<div class="form-control">
+			<label for="username">Username</label>
+			<input type="text" placeholder="enter your name" id="username" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Email</label>
+			<input type="email" placeholder="abc@gmail.com" id="email" />
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Password</label>
+			<input type="password" placeholder="Password" id="password"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<div class="form-control">
+			<label for="username">Password check</label>
+			<input type="password" placeholder="Re-enter password" id="password2"/>
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error message</small>
+		</div>
+		<button id="btnlogin" ></a>Submit </button>
+		<br><br>
+            <a href="index.html" style="text-decoration: none">Existing user?- login </a>
+            <br>
+           
+	</form>
+</div>
+<script src="register.js"></script>
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    const config = {
+  apiKey: "AIzaSyDZkb9buuvB08wGNmpR4fCRaMOvLTRW5PU",
+  authDomain: "flutternotes-f15f9.firebaseapp.com",
+  projectId: "flutternotes-f15f9",
+  storageBucket: "flutternotes-f15f9.appspot.com",
+  messagingSenderId: "406806266462",
+  appId: "1:406806266462:web:8f098598dcef742c1feacf",
+  measurementId: "G-PR5NR3F681"
+};
+    firebase.initializeApp(config);
+  </script>
+  <script src="register.js"></script>

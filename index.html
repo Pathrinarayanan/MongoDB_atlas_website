@@ -1,0 +1,53 @@
+
+<html>
+<head>
+  <title>Firebase Login</title>
+  <link rel="stylesheet" href="login.css" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+ 
+</head>
+<body>
+
+ 
+  <div class="container">
+  <div id="login_div" class="main-div">
+    <h3>User login </h3>
+    <input type="email" placeholder="Email..." id="email_field" name = "email" >
+    <div id="email_error">Please fill up your Email or Phone</div>
+    <input type="password" placeholder="Password..." id="password_field" name = "password"
+	>
+    <div id="pass_error">Please fill up your Password</div>
+    <div id = "errorbox" class="errorbox"></div>
+
+    <button onclick="login()">Login to Account</button>
+    <p ><a href="signup.html" style="text-decoration:none">New user?</a></p>
+
+  </div>
+  <div id="user_div" class="loggedin-div">
+    <h3>Welcome User</h3>
+    <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+    <button onclick="logout()">Logout</button>
+    <p ><a href="home.html" style="text-decoration:none">Go to home page</a></p>
+  </div>
+</div>
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    const config = {
+  apiKey: "AIzaSyDZkb9buuvB08wGNmpR4fCRaMOvLTRW5PU",
+  authDomain: "flutternotes-f15f9.firebaseapp.com",
+  projectId: "flutternotes-f15f9",
+  storageBucket: "flutternotes-f15f9.appspot.com",
+  messagingSenderId: "406806266462",
+  appId: "1:406806266462:web:8f098598dcef742c1feacf",
+  measurementId: "G-PR5NR3F681"
+};
+    firebase.initializeApp(config);
+  </script>
+  <script src="login.js"></script>
+
+</body>
+</html>

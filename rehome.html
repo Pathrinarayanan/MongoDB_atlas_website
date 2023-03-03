@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<style>
+  nav {
+    margin: 0;
+    background-color: #501f3a;
+    overflow: hidden;
+}
+
+nav a {
+    float: right;
+    color: #F5F5F5;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    margin: 0px;
+    background-color: #a83474;
+}
+
+head{
+  margin: 0px;
+  width: 100%;
+}
+
+body{
+  margin: 0px;
+}
+
+.card{
+  padding: 10px;
+  width: 500px;
+}
+
+.card input[type=text]{
+  padding: 5px;
+}
+
+.card input[type=number]{
+  padding: 5px;
+}
+
+textarea{
+  padding:5px;
+}
+
+
+label{
+  font-weight: bolder;
+
+}
+
+button:disabled{
+  background-color: rgb(226, 224, 224);
+  
+}
+button:disabled:hover{
+  background-color: rgb(226, 224, 224);
+  cursor: default;
+}
+button{
+  padding: 10px;
+  border: none;
+  background-color:#501f3a;
+  color: white;
+  width: 100px;
+  cursor: pointer;
+ 
+}
+
+button:hover{
+  background-color:#a83474 ;
+}
+
+
+</style>
+<html ng-app="rehomepet">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rehome Your Pet</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="4he6dpfw888my33"></script>
+    <header><nav>
+       <a href="index.html"> Logout</a>
+      <a href=""> About Us </a>
+      <a href="blog.html"> Blog </a>
+      <a href="rehome.html"> Rehome your Pet </a>
+      <a href="adoptpet.html"> Adopt a Pet </a>
+      <a href="home.html"> Home </a>
+          </nav>
+    </header>
+  </head>
+
+  <body ng-controller="FormCtrl">
+    <div class="card">
+    <form name="rehome" method="post" action="/rehome.html">
+      <label>What is your pet's name?</label> <input type = "text" ng-model="pet.name" placeholder="enter name" name="names" id="name" required><br><br>
+    
+      <label>Select your pet type: </label><br>
+      <input type="radio" ng-model="pet.type" value="dogs" ng-required="!pet.type" id="type" name="type">Dogs<br>
+  <input type="radio" ng-model="pet.type" value="cats" ng-required="!pet.type" id="type" name="type">Cats<br>
+  <input type="radio" ng-model="pet.type" value="small animals" ng-required="!pet.type" name="type" id="type">Small Animals<br>
+  <input type="radio" ng-model="pet.type" value="birds" ng-required="!pet.type" id="type"name="type">Birds<br>
+  <input type="radio" ng-model="pet.type" value="fish" ng-required="!pet.type" id="type" name="type">Fish<br>
+  <input type="radio" ng-model="pet.type" value="others" ng-required="!pet.type" id="type" name="type">Others<br><br>
+
+   <label>Enter your pet's breed:</label> <input type = "text" name="breed" ng-model="pet.breed" id="breed"required><br><br>
+
+  <div ng-show="pet.name">
+  <label>How old is {{pet.name}}? (in years) </label>
+  <input type="text" placeholder="5" ng-model="pet.age" id="age" name="age" required ><br><br>
+
+ <label> Select the gender of {{pet.name}}: </label><br>
+<input type="radio" ng-model="pet.gender" value="male" id="gender" ng-required="!pet.age" name="gender"> Male <br>
+<input type="radio" ng-model="pet.gender" value="female" id="gender" ng-required="!pet.age" name="gender"> Female <br><br>
+
+<div ng-show="pet.type=='dogs' || pet.type=='cats' || pet.type=='small animals'">
+
+<label> Is {{pet.name}} vaccinated? </label><br>
+<input type="radio" ng-model="pet.vaccinated" value="yes" id="vaccinated" name="vaccinated"> Yes <br>
+<input type="radio" ng-model="pet.vaccinated" value="no" id="vaccinated" name="vaccinated"> No <br><br>
+
+<label> Is {{pet.name}} spayed/neutered? </label><br>
+<input type="radio" ng-model="pet.neutered" value="yes" id="spayed" name="spayed"> Yes <br>
+<input type="radio" ng-model="pet.neutered" value="no" id="spayed" name="spayed"> No <br><br>
+
+<label> Does {{pet.name}} bite?</label><br>
+<input type="radio" ng-model="pet.bite" value="yes" id="bite" value="yes" name="bite"> Yes <br>
+<input type="radio" ng-model="pet.bite" value="no" id="bite" value="no" name="bite"> No <br><br>
+ </div>
+
+<div ng-show="pet.type!='others'" ng-if="pet.type">
+ <label> Is {{pet.name}} good with other {{pet.type}}?</label><br>
+<input type="radio" ng-model="pet.friendly" value="yes" id="friendly" name="friendly"> Yes <br>
+<input type="radio" ng-model="pet.friendly" value="no" id="friendly" name="friendly"> No <br><br>
+</div>
+
+<label>  Why do you want to rehome {{pet.name}}?</label><br>
+  <textarea rows="5" cols="50" ng-model="pet.reason" ng-required="!pet.reason" id="reason" name="reason"></textarea><br><br>
+
+<label> Upload a picture of {{pet.name}}:</label> <button onclick="choose()" id="clicks">Choose File</button><br><br>
+
+ 
+</div>
+<br><br><button  id="btn">Submit</button> </form>
+</div>
+  </body>
+
+<script>
+
+  function choose(){
+    Dropbox.choose({
+    success: function(files) {
+      var file = files[0];
+      var options = {
+        files: [
+          {
+            name: file.name,
+            url: file.link
+          }
+        ]
+      };
+      Dropbox.filesUpload(options)
+        .then(function(response) {
+          console.log(response);
+          document.getElementsById('clicks').style.visibility ='hidden';
+        })
+        .catch(function(error) {
+          console.error(error);
+        });
+    },
+    cancel: function() {
+      // optional
+    },
+    linkType: 'direct',
+    multiselect: false
+  });
+document.getElementsById('clicks').style.visibility ='hidden';
+}
+ 
+</script>
+
+  <script type="module">
+
+const { MongoClient } = require('mongodb');
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const url = 'mongodb+srv://pathri:narayanan@001@cluster0.ifba2t3.mongodb.net/?retryWrites=true&w=majority';
+btn.addEventListener("clicks", function() {
+  var name = document.getElementById("name").value;
+var type = document.getElementById("type").value;
+var breed = document.getElementById("breed").value;
+var age = document.getElementById("age").value;
+var gender = document.getElementById("gender").value;
+var vaccinated = document.getElementById("vaccinated").value;
+var spayed = document.getElementById("spayed").value;
+var bite = document.getElementById("bite").value;
+var friendly = document.getElementById("friendly").value;
+var reason = document.getElementById("reason").value;
+const btn = document.getElementById("btn");
+
+
+  client.connect(err => {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
+  console.log('Connected to MongoDB Atlas');
+
+  const db = client.db('test');
+  const collection = db.collection('diaries');
+
+  // Define the new document to insert
+  const newDocument = { name: 'John Doe', age: 30, email: 'johndoe@example.com' };
+
+  // Insert the new document into the collection
+  collection.insertOne(newDocument, (err, result) => {
+    if (err) {
+      console.log(err);
+      process.exit(1);
+    }
+    console.log('Inserted document:', result.ops[0]);
+    client.close();
+  });
+});
+
+
+  console.log("Document written with ID: ", docRef.id);
+  window.alert("successful");
+} 
+);
+
+
+
+
+
+
+  </script>
+
+  <script>
+
+ var apps = angular.module('rehomepet', []);
+
+
+apps.controller('FormCtrl', function($scope) {
+ });
+// // Add a second document with a generated ID.
+
+
+
+
+
+  </script>
+
+
+</html>
+

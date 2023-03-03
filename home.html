@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AdoptMe!</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html>
+<style>body {
+    margin: 0;
+}
+nav {
+    margin: 0;
+    background-color: #501f3a;
+    overflow: hidden;
+}
+nav a {
+    float: right;
+    color: #F5F5F5;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    margin: 0;
+    background-color: #a83474;
+}
+.head {
+    
+    width: 100%; 
+}
+
+.head-text {
+    font-size: 30px;
+    text-align: center;
+    font-family: Monaco, Consolas, "Lucida Console", monospace;
+    color: #000000;
+    text-outline: 5px 5px 5px black;
+    text-shadow: 2px 2px 2px black;
+}
+footer{
+  width: 100%;
+  background-color: #000000;
+  height: 110px;
+  color: #FFFFFF;
+  text-align: right;
+}
+
+.card{
+  text-align: center;
+  padding: 10px;
+  padding-top: 60px;
+}</style>
+    <head>
+        <title>Home page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="homepage.css">
+        <style>
+            .mySlides {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <header class="header">
+        <nav>
+            <a href="index.html"> Logout</a>
+            <a href=""> About Us </a>
+            <a href="blog.html"> Blog </a>
+            <a href="rehome.html"> Rehome your Pet </a>
+            <a href="adoptpet.html"> Adopt a Pet </a>
+            <a href="home.html"> Home </a> </nav>
+
+    </header>
+
+        <div class="w3-content w3-section" style="max-width:500px">
+            <img class="mySlides" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_LlUtxzfoR_L28kTjGXmSAlkFTgYJZVFFdw&usqp=CAU" style="width:100%">
+            <img class="mySlides" src="https://tse4.mm.bing.net/th/id/OIP.Z3u_Je764WV4Yfrg0SiezgHaEo?pid=ImgDet&rs=1" style="width:100%">
+            <img class="mySlides" src="https://images.ctfassets.net/440y9b545yd9/144ynQJFHm4tTX6Muwbil8/b12fca1e55b0cc801ff4cd46c410fa7f/PetAdoptionTips850.jpg" style="width:100%">
+        </div>
+
+        <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) {
+                    myIndex = 1
+                }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 3000); 
+            }
+        </script>
+
+    </body>
+
+    </html>
+
+    
+    <div class="head">
+        <div class="head-text">Welcome to<br>AdoptMe!</div>
+    </div>
+    <!-- End your code here -->
+</body>
+  <div class="card">
+<h3>Our website is designed to help you find your pet a new home or adopt a homeless pet.</h3>
+  </div>
+  <footer>
+    <h6 style="padding-right:10px;padding-top:10px;">Contact Us:</h6>
+    <h6 style="padding-right:10px;"><a href="">adoptme@gmail.com</a></h6>
+    <h6 style="padding-right:10px;"><a href="">9150910577</a></h6>
+    
+  </footer>
+</html>
+
+
+
+
+
+<!-- End your code here -->
+
+
+</html>

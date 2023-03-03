@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css" />
+<style>
+  nav {
+    margin: 0;
+    background-color: #501f3a;
+    overflow: hidden;
+    width:100%;
+}
+
+nav a {
+    float: right;
+    color: #F5F5F5;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    margin: 0px;
+    background-color: #a83474;
+}
+
+head{
+  margin: 0px;
+  width: 100%;
+}
+
+body{
+  margin: 0px;
+}
+
+
+label{
+  font-weight: bold;
+}
+
+.card{
+  padding: 20px;
+  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  
+}
+
+.box{
+  padding: 10px;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: whitesmoke;
+  padding: 20px;
+  grid-gap: 20px;
+}
+
+select{
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
+img{
+  width:200px;
+  height:auto;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  </style>
+<html ng-app="adoptpet">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rehome Your Pet</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="app.js"></script>
+    <header><nav>
+            
+      <a href="index.html"> Logout</a>
+            <a href=""> About Us </a> 
+            <a href="blog.html"> Blog </a>
+            <a href="rehome.html"> Rehome your Pet </a>
+            <a href="adoptpet.html"> Adopt a Pet </a>
+            <a href="home.html"> Home </a>
+    </header>
+  </head>
+
+  <body ng-controller='ctrl'>
+    <div class="box">
+
+   
+
+
+</div>
+    <div class="card">
+        <form action="/update/<%= pets.id %>" method="POST">
+        <img src="https://g.petango.com/shared/Photo-Not-Available-dog.gif"><br>
+        <label>Name: <input name="name"    value="<%= pets.type %>" ></p></label><br>
+    <label>Type: <input name="type"  style="width:50%" value="<%= pets.type %>" ></label><br>
+    <label>Breed:<input name="breed"  style="width:50%" value="<%= pets.breed %>"></label><br>
+    <label>Age: <input name="age"  style="width:50%" value="<%= pets.age %>"></label><br>
+    <label>Gender: <input name="gender"  style="width:50%" value="<%= pets.gender %>"></label><br>
+    <label>Vaccinated: <input name="vaccinated" contenteditable="true" style="width:50%" value="<%= pets.vaccinated %>"></label><br>
+    <label>spayed: <input name="spayed" contenteditable="true" style="width:50%" value="<%= pets.spayed %>"> </label><br>
+    <label>Reason: <input name="reason" contenteditable="true" style="width:50%" value="<%= pets.reason %>" ></label><br>
+<input type="submit">
+</form>
+
+
+
+</div>
+</div>
+
+  </body>
+
+  <script>
+var app = angular.module('adoptpet', []);
+app.controller('ctrl', function($scope) {
+  $scope.petType = "";
+});
+  </script>
+</html>

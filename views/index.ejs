@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css" />
+<style>
+  nav {
+    margin: 0;
+    background-color: #501f3a;
+    overflow: hidden;
+    width:100%;
+}
+
+nav a {
+    float: right;
+    color: #F5F5F5;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    margin: 0px;
+    background-color: #a83474;
+}
+
+head{
+  margin: 0px;
+  width: 100%;
+}
+
+body{
+  margin: 0px;
+}
+
+
+label{
+  font-weight: bold;
+}
+
+.card{
+  padding: 20px;
+  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  
+}
+
+.box{
+  padding: 10px;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: whitesmoke;
+  padding: 20px;
+  grid-gap: 20px;
+}
+
+select{
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
+img{
+  width:200px;
+  height:auto;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+  </style>
+<html ng-app="adoptpet">
+  <head>
+    <meta charset="utf-8" />
+    <title>Rehome Your Pet</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="app.js"></script>
+    <header><nav>
+            
+      <a href="index.html"> Logout</a>
+            <a href=""> About Us </a> 
+            <a href="blog.html"> Blog </a>
+            <a href="rehome.html"> Rehome your Pet </a>
+            <a href="adoptpet.html"> Adopt a Pet </a>
+            <a href="home.html"> Home </a>
+    </header>
+  </head>
+
+  <body ng-controller='ctrl'>
+    <div class="box">
+
+    <div><h3>Choose the type of pet you want to adopt:</h3>
+    <select name="pets" ng-model="petType">
+  <option value ="">---</option>
+  <option value="dogs" >Dogs</option>
+  <option value="cats" >Cats</option>
+  <option value="small" >Small Animals</option>
+  <option value="birds">Birds</option>
+  <option value="fish">Fish</option>
+  <option value="others">Others</option>
+</select></div>
+
+    <div ng-show ="petType === 'dogs'" class="grid-container">
+
+    <div class="card">
+    <img class="center" src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQevp_cnO-UFKx8nHUPWKcd2PgWH9l8iPfY8g&usqp=CAU"><br>
+    <label>Name:</label>&nbspOreo<br>
+    <label>Breed:</label>&nbspDalmatian<br>
+    <label>Contact:</label>&nbsp9444061218<br>
+  </div>
+
+<div class="card">
+    <img class="center" src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDIWzGDrjOCoqeDfdZp63w_o8duhuTNtAigw&usqp=CAU"><br>
+    <label>Name:</label>&nbspTom<br>
+    <label>Breed:</label>&nbspPug<br>
+    <label>Contact:</label>&nbsp9150910555<br>
+  </div>
+
+  <div class="card">
+    <img class="center" src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsu2UQ_EianJWXyONh4XB3LNUyQWA-u_Vj2g&usqp=CAU"><br>
+    <label>Name:</label>&nbspJimmy<br>
+    <label>Breed:</label>&nbspLabrador<br>
+    <label>Contact:</label>&nbsp9150914444<br>
+  </div>
+
+<div class="card">
+    <img class="center" src ="https://i.pinimg.com/736x/1d/1f/1b/1d1f1bad2142000764d75d5a8b0b4b73.jpg"><br>
+    <label>Name:</label>&nbspDolche<br>
+    <label>Breed:</label>&nbspRottweiler<br>
+    <label>Contact:</label>&nbsp9150910600<br>
+  </div>
+
+</div>
+
+<div ng-show ="petType === 'cats'" class="grid-container">
+
+    <div class="card">
+    <img class="center" src ="https://www.lifetimepetcover.co.uk/assets/uploads/Breed%20Pages/Bombay/Bombay---Introduction.jpg"><br>
+    <label>Name:</label>&nbspMeow<br>
+    <label>Breed:</label>&nbspBombay Cat<br>
+    <label>Contact:</label>&nbsp9444061218<br>
+  </div>
+
+</div>
+
+<div ng-show ="petType === 'birds'" class="grid-container">
+
+    <div class="card">
+    <img class="center" src ="https://upload.wikimedia.org/wikipedia/commons/f/f2/Eddie%2C_a_1.5_year_old_male_cockatiel.png"><br>
+    <label>Name:</label>&nbspZippy<br>
+    <label>Breed:</label>&nbspLutino Cockatiel<br>
+    <label>Contact:</label>&nbsp9444061218<br>
+  </div>
+
+  <div class="card">
+    <img class="center" src ="https://preview.redd.it/e82v9njusq881.jpg?width=640&crop=smart&auto=webp&s=348d805bc312347bf775945d2206a4f557302cc9"><br>
+    <label>Name:</label>&nbspSunny<br>
+    <label>Breed:</label>&nbspSun Conure<br>
+    <label>Contact:</label>&nbsp909919876<br>
+  </div>
+
+</div>
+
+<div ng-show ="petType === 'small'" class="grid-container">
+
+    <div class="card">
+    <img class="center" src ="https://upload.wikimedia.org/wikipedia/commons/4/48/American_Grand_Champion_Dutch_Rabbit.jpg"><br>
+    <label>Name:</label>&nbspFlash<br>
+    <label>Breed:</label>&nbspDutch Rabbit<br>
+    <label>Contact:</label>&nbsp9444061218<br>
+  </div>
+
+  
+
+</div>
+<div ng-show ="petType === 'others'" class="grid-container">
+
+
+  
+
+<% petlist.forEach(pets=>{ %>
+</div>
+    <div class="card">
+        <img src="https://g.petango.com/shared/Photo-Not-Available-dog.gif"><br>
+        <label>Name: &nbsp <%= pets.name %></label><br>
+    <label>Type:&nbsp <%= pets.type %></label><br>
+    <label>Breed:&nbsp<%= pets.breed %></label><br>
+    <label>Age:&nbsp<%= pets.age %></label><br>
+    <label>Gender:&nbsp<%= pets.gender %></label><br>
+    <label>Vaccinated:&nbsp<%= pets.vaccinated %></label><br>
+    <label>spayed: &nbsp<%= pets.spayed%></label><br>
+    <label>Reason: &nbsp<%= pets.reason %></label><br> 
+    <form action="/edit/<%=pets.id %>" method="post">
+        <input type="submit" value="edit">
+    </form>
+    <form action="/delete/<%= pets.id %>" method="post">
+        <input type="submit" value="delete">
+    </form>
+    
+ 
+    
+<% }) %>
+
+
+
+</div>
+</div>
+<script>
+  var ACCESS_TOKEN = 'sl.BZRRiZ5WGlSXYbcp0uTyfTpkZmIJsTH_vfte0t1RkBKZIaqicyBBuQzz9LPXVDuEvKE3vYvcls9PyBn5l8Mwb6YFUaVFDgYcLdIWhTKKTAAv9ts8XEuDEl-FYKa0ZkFXKi0Z-IaS1Gak';
+var dbx = new Dropbox.Dropbox({ accessToken: ACCESS_TOKEN });
+
+var sharedLink = 'https://www.dropbox.com/s/abc123/your-image.jpg?dl=0';
+
+// Extract the file path from the shared link
+var filePath = sharedLink.substring(sharedLink.indexOf('/s/') + 3, sharedLink.indexOf('?dl=0'));
+
+// Get the shared link of the image file you want to retrieve
+
+var button = document.getElementById('btn');
+button.addEventListener('click', function() {
+  console.log("cliced");
+Dropbox.choose({
+  linkType: 'direct',
+  extensions: ['.jpg', '.jpeg', '.png'],
+  success: function(files) {
+    var imageURL = files[0].link;
+    var img = document.createElement('img');
+    img.src = imageURL;
+    document.body.appendChild(img);
+  },
+  cancel: function() {
+    // optional
+  },
+  error: function(errorMessage) {
+    // optional
+    }
+  });
+});
+</script>
+  </body>
+
+  <script>
+var app = angular.module('adoptpet', []);
+app.controller('ctrl', function($scope) {
+  $scope.petType = "";
+});
+  </script>
+</html>

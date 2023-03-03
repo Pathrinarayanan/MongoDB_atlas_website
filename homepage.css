@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+}
+nav {
+    margin: 0;
+    background-color: #501f3a;
+    overflow: hidden;
+}
+nav a {
+    float: right;
+    color: #F5F5F5;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    margin: 0;
+    background-color: #a83474;
+}
+.head {
+    
+    width: 100%; 
+}
+
+.head-text {
+    font-size: 30px;
+    text-align: center;
+    font-family: Monaco, Consolas, "Lucida Console", monospace;
+    color: #000000;
+    text-outline: 5px 5px 5px black;
+    text-shadow: 2px 2px 2px black;
+}
+footer{
+  width: 100%;
+  background-color: #000000;
+  height: 110px;
+  color: #FFFFFF;
+  text-align: right;
+}
+
+.card{
+  text-align: center;
+  padding: 10px;
+  padding-top: 60px;
+}
